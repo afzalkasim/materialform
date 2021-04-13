@@ -1,0 +1,80 @@
+<form class="form" [formGroup]="form" class="form-container" >
+    <mat-card >
+        <mat-card-header style="justify-content: center;">
+            <mat-card-title >Project details</mat-card-title>
+        </mat-card-header>
+    <mat-card-content>
+    <div>
+    <mat-form-field>
+        <mat-label>Client Name</mat-label>
+        <input matInput formControlName="clientName">
+        <mat-error *ngIf="!form.controls['clientName'].valid && form.controls['clientName'].touched">
+            Enter client Name
+          </mat-error>
+    </mat-form-field >
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Project Name</mat-label>
+        <input matInput formControlName="projectName">
+        <mat-error *ngIf="!form.controls['projectName'].valid && form.controls['projectName'].touched">
+            Enter project name
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Project type</mat-label>
+            <input matInput formControlName="projectType">
+            <mat-error *ngIf="!form.controls['projectType'].valid && form.controls['projectType'].touched">
+                Enter project type
+              </mat-error>
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <mat-label>Project description</mat-label>
+            <textarea matInput formControlName="projectDescription"></textarea>
+            <mat-error *ngIf="!form.controls['projectDescription'].valid && form.controls['projectDescription'].touched">
+                Enter project description
+            </mat-error>
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <mat-label>Project Manager</mat-label>
+            <input matInput formControlName="projectManager">
+            <mat-error *ngIf="!form.controls['projectManager'].valid && form.controls['projectManager'].touched">
+                Enter project manager
+              </mat-error>
+        </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Start date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="!form.controls['startDate'].valid && form.controls['startDate'].touched">
+                    Select start date
+                  </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="!form.controls['endDate'].valid && form.controls['endDate'].touched">
+                Select end date
+              </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="button">
+    <button mat-raised-button color="primary">Submit</button>
+    </div>
+    </mat-card-content>
+    </mat-card>
+</form>
+
